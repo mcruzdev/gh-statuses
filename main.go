@@ -26,7 +26,7 @@ func main() {
 		fmt.Println(e.Name())
 	}
 
-	token, err := os.ReadFile("/etc/gh-checkmoon/github")
+	token, err := os.ReadFile("/etc/gh-checkmoon/token")
 
 	if err != nil {
 		panic(any(err))
