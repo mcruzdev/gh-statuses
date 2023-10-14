@@ -3,14 +3,15 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 )
 
 func main() {
 	repo := os.Getenv("REPO") // e.g., platformoon/platformoon-core
-	sha := os.Getenv("SHA")
-	url := fmt.Sprintf("https://api.github.com/repos/%s/statuses/%s", repo, sha)
+	// _ := os.Getenv("SHA")
+	url := fmt.Sprintf("https://api.github.com/repos/%s/statuses/%s", repo, "abcd5c018e5595e89d0283d783bdb10a2b66dca5")
 	state := os.Getenv("STATE")
 	targetUrl := os.Getenv("TARGET_URL")
 	description := os.Getenv("DESCRIPTION")
@@ -39,4 +40,5 @@ func main() {
 		panic(fmt.Errorf("error while requesting Github API"))
 	}
 	defer resp.Body.Close()
+	log.Println("Commit status setted")
 }
