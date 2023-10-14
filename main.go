@@ -18,6 +18,8 @@ func main() {
 	description := os.Getenv("DESCRIPTION")
 	token, err := os.ReadFile("/etc/gh-token")
 
+	log.Println(string(token))
+
 	requestBody := []byte(fmt.Sprintf(`{
 		"state": "%s",
 		"target_url": "%s",
