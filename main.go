@@ -21,6 +21,15 @@ func main() {
 		panic(any(err))
 	}
 
+	entries, err := os.ReadDir("/etc/gh-checkmoon")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, e := range entries {
+		fmt.Println(e.Name())
+	}
+
 	log.Println(string(token))
 
 	requestBody := []byte(fmt.Sprintf(`{
