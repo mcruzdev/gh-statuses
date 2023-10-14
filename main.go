@@ -54,7 +54,7 @@ func main() {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(fmt.Errorf("error while requesting Github API"))
+		panic(any(err))
 	}
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
