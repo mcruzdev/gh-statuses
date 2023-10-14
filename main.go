@@ -17,7 +17,7 @@ func main() {
 	targetUrl := os.Getenv("TARGET_URL")
 	description := os.Getenv("DESCRIPTION")
 
-	entries, err := os.ReadDir("/etc/gh-checkmoon")
+	entries, err := os.ReadDir("/etc")
 	if err != nil {
 		log.Fatal(err)
 	}
