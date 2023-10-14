@@ -16,10 +16,6 @@ func main() {
 	state := os.Getenv("STATE")
 	targetUrl := os.Getenv("TARGET_URL")
 	description := os.Getenv("DESCRIPTION")
-	token, err := os.ReadFile("/etc/gh-checkmoon/github")
-	if err != nil {
-		panic(any(err))
-	}
 
 	entries, err := os.ReadDir("/etc/gh-checkmoon")
 	if err != nil {
@@ -28,6 +24,12 @@ func main() {
 
 	for _, e := range entries {
 		fmt.Println(e.Name())
+	}
+
+	token, err := os.ReadFile("/etc/gh-checkmoon/github")
+
+	if err != nil {
+		panic(any(err))
 	}
 
 	log.Println(string(token))
