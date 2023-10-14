@@ -17,6 +17,9 @@ func main() {
 	targetUrl := os.Getenv("TARGET_URL")
 	description := os.Getenv("DESCRIPTION")
 	token, err := os.ReadFile("/etc/gh-checkmoon/github")
+	if err != nil {
+		panic(any(err))
+	}
 
 	log.Println(string(token))
 
