@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -40,5 +41,7 @@ func main() {
 		panic(fmt.Errorf("error while requesting Github API"))
 	}
 	defer resp.Body.Close()
-	log.Println("Commit status setted")
+	body, err := io.ReadAll(resp.Body)
+
+	log.Println(string(body))
 }
