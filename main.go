@@ -11,8 +11,8 @@ import (
 
 func main() {
 	repo := os.Getenv("REPO") // e.g., platformoon/platformoon-core
-	// _ := os.Getenv("SHA")
-	url := fmt.Sprintf("https://api.github.com/repos/%s/statuses/%s", repo, "abcd5c018e5595e89d0283d783bdb10a2b66dca5")
+	sha := os.Getenv("SHA")
+	url := fmt.Sprintf("https://api.github.com/repos/%s/statuses/%s", repo, sha)
 	state := os.Getenv("STATE")
 	targetUrl := os.Getenv("TARGET_URL")
 	description := os.Getenv("DESCRIPTION")
