@@ -16,7 +16,7 @@ func main() {
 	state := os.Getenv("STATE")
 	targetUrl := os.Getenv("TARGET_URL")
 	description := os.Getenv("DESCRIPTION")
-	token, err := os.ReadFile("/etc/gh-token/github")
+	token, err := os.ReadFile("/etc/gh-checkmoon/github")
 
 	log.Println(string(token))
 
